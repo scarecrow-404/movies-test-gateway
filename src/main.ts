@@ -4,7 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const defaultOrigin = [`http://localhost:3000`, 'http://192.168.1.109:3000'];
+  const defaultOrigin = process.env.FRONT_END_URL ?? 'http://localhost:3000';
 
   app.enableCors({ origin: defaultOrigin });
 
